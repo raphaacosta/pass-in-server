@@ -16,3 +16,8 @@ Content-Type: application/json
   "name": "Raphael Costa",
   "email": "rafa.costa1@hotmail.com"
 }
+
+###
+
+GET http://localhost:3333/events/8f763e80-ec2d-43d0-8685-af4687418a24
+
