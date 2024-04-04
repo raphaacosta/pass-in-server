@@ -6,3 +6,13 @@ Content-Type: application/json
   "details": "Um evento para quem é apaixonado por programação",
   "maximumAttendees": 100
 }
+
+###
+
+POST http://localhost:3333/events/2c751fd8-1b8a-4035-830b-2749fe7d9c74/attendees
+Content-Type: application/json
+
+{
+  "name": "Raphael Costa",
+  "email": "rafa.costa0@hotmail.com"
+}
