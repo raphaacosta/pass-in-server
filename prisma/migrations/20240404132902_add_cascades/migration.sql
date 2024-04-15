@@ -1,10 +1,10 @@
 -- RedefineTables
 PRAGMA foreign_keys=OFF;
 CREATE TABLE "new_attendees" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" serial NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "event_id" TEXT NOT NULL,
     CONSTRAINT "attendees_event_id_fkey" FOREIGN KEY ("event_id") REFERENCES "events" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -13,8 +13,8 @@ DROP TABLE "attendees";
 ALTER TABLE "new_attendees" RENAME TO "attendees";
 CREATE UNIQUE INDEX "attendees_event_id_email_key" ON "attendees"("event_id", "email");
 CREATE TABLE "new_check_ins" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "id" serial NOT NULL PRIMARY KEY,
+    "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "attendee_id" INTEGER NOT NULL,
     CONSTRAINT "check_ins_attendee_id_fkey" FOREIGN KEY ("attendee_id") REFERENCES "attendees" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
